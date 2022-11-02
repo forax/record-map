@@ -101,7 +101,7 @@ public class RecordMapTest {
 
   @Test
   public void putIfAbsent() {
-    var map = new RecordMap<Integer, Integer>();
+    var map = new RecordMap<String, Integer>();
     map.put("foo", 3);
     assertNull(map.putIfAbsent("bar", 10));
     assertEquals(3, map.putIfAbsent("foo", 4));
@@ -255,7 +255,7 @@ public class RecordMapTest {
 
   @Test
   public void testToString() {
-    var map = new RecordMap<String, Object>();
+    var map = new RecordMap<Integer, Integer>();
     range(0, 10).
         forEach(i -> map.put(i, i));
     assertEquals("{0=0, 1=1, 2=2, 3=3, 4=4, 5=5, 6=6, 7=7, 8=8, 9=9}", map.toString());
