@@ -99,7 +99,7 @@ public class RecordMap<K,V> extends AbstractMap/*<K,V>*/ implements Iterable<Rec
   private void rehash() {
     var offsets = new int[this.offsets.length << 1];
     loop: for (int i = 0; i < entries.length; i++) {
-     var e = entries[i];
+      var e = entries[i];
       var index = e.key.hashCode() & (offsets.length - 1);
       for (; ; ) {
         if (offsets[index] == 0) {
