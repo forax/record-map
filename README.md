@@ -21,8 +21,8 @@ The class `RecordMap` solves that issue, the following compiles with Java 20
 ```
 
 Obviously there is a trick somewhere because `Map.entrySet()` is typed
-`Set<Map.Entry<K,V>` and `Set<RecordEntry<K,V>` can not be a subtype of
-`Set<Map.Entry<K, V>` because parametrized types are not covariant in Java.
+`Set<Map.Entry<K,V>>` and `Set<RecordEntry<K,V>>` can not be a subtype of
+`Set<Map.Entry<K, V>>` because parametrized types are not covariant in Java.
 
 This works because
 - at compile time, the actual code is using a raw type `Map` and then the signature
@@ -32,7 +32,7 @@ This works because
   as parameter.
 
 In practice, it makes `RecordMap` a valid implementation of `Map` by making
-`Set<RecordEntry<K,V>> entrySet()` an override of `Set<Map.Entry<K,V>>`.
+`Set<RecordEntry<K,V>> entrySet()` an override of `Set<Map.Entry<K,V>> entrySet()`.
 
 
 
